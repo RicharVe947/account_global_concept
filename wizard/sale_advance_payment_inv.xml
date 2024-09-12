@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_inherit_view_form" model="ir.ui.view">
+        <field name="name">sale.inherit.view.form</field>
+        <field name="model">sale.advance.payment.inv</field>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='count']" position="after">
+                <field name="is_invoice_global_concept" invisible="1"/>
+            </xpath>
+            <xpath expr="//button[@name='create_invoices']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_invoice_global_concept','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//button[@id='create_invoice']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_invoice_global_concept','=',True)]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='create_invoices']" position="after">
+                <button name="create_invoice_global_concept" attrs="{'invisible': [('is_invoice_global_concept','=',False)]}" id="create_invoice_global_concept" string="Crear y ver facturas concepto global" type="object" context="{'open_invoices': True}" class="btn-primary" data-hotkey="q"/>
+            </xpath>
+            <xpath expr="//group/field[@name='advance_payment_method']" position="attributes">
+                <attribute name="attrs">{'readonly': [('is_invoice_global_concept','=',True)], 'invisible': [('is_invoice_global_concept','=',True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

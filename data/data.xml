@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="product_global_concept" model="product.product">
+            <field name="name">Conepto Factura Global</field>
+            <field name="detailed_type">service</field>
+            <field name="description">Conepto Factura Global</field>
+        </record>
+    </data>
+</odoo>

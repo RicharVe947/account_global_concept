@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="model_action_create_account_global" model="ir.actions.server">
+        <field name="name">Facturación Concepto Global</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="binding_model_id" ref="sale.model_sale_order_line"/>
+        <field name="state">code</field>
+        <field name="code">action = records._open_wizard_create_account_global()</field>
+    </record>
+</odoo>
